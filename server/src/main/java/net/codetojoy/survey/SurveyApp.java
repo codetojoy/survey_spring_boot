@@ -14,9 +14,16 @@ public class SurveyApp {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                // client_jquery
-                registry.addMapping("/greeting").allowedOrigins("http://localhost:5150");
-                registry.addMapping("/survey").allowedOrigins("http://localhost:5150");
+                // client_jquery is 5150
+                // client_angular_js is 6160
+
+                registry.addMapping("/greeting")
+                        .allowedOrigins("http://localhost:5150")
+                        .allowedOrigins("http://localhost:6160");
+
+                registry.addMapping("/survey")
+                        .allowedOrigins("http://localhost:5150")
+                        .allowedOrigins("http://localhost:6160");
             }
         };
     }
