@@ -9,8 +9,7 @@ cd data
 touch $RESULT.json
 rm $RESULT.json
 
-# wget -q $BASE_URI/survey?userId=5150 -O $RESULT.json
-wget -q $BASE_URI/survey -O $RESULT.json
+wget -q $BASE_URI/survey?userId=444 -O $RESULT.json
 
 echo "wget result: $?"
 echo "" 

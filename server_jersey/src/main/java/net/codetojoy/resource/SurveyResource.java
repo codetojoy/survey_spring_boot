@@ -3,18 +3,30 @@ package net.codetojoy.survey;
 import net.codetojoy.survey.model.*;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.*;
 
 import java.util.*;
 
 @Path("/survey")
 public class SurveyResource {
 
+    /*
+    @Context
+    UriInfo uriInfo;
+
+    @Context
+    Request request;
+
+    public SurveyResource(UriInfo uriInfo, Request request) {
+        this.uriInfo = uriInfo;
+        this.request = request;
+    }
+    */
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Survey getSurvey() {
+    public Survey getSurvey(@QueryParam("userId") long userId) {
         String template = "Hello, %s!";
-        long userId = 888L;
         String content = String.format(template, "" + userId);
 
         List<Answer> q1Answers = new ArrayList<>();
